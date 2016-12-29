@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Pomodoro Clock</title>
+  <link rel='stylesheet prefetch' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css'>
+  <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet">
+
+
+  <style>
+
+    body {
+      text-align: center;
+      background-color: #FFD90F;
+      color: black;
+      font-family: "Permanent Marker", sans-serif;
+    }
+
+    h1 {
+      font-size: 54px;
+    }
+    .container {
+      max-width: 600px;
+    }
+
+    #timers {
+      margin-top: 40px;
+    }
+
+    .time {
+      width: 60%;
+      min-width:110px;
+      font-size: 36px;
+      padding: 20px 0;
+      border: solid white 3px;
+      border-radius: 15px;
+      background-color: #1791FF;
+    }
+
+    .adjust {
+      width: 50px;
+      height: 50px;
+      padding: 2px 0px 0px 0px;
+      font-size: 26px;
+      margin: 0px auto;
+      border: solid white 3px;
+      border-radius: 5px;
+    }
+
+    .action {
+      display:inline-block;
+      margin: 10px auto;
+      width: 120px;
+      border: solid white 3px;
+      border-radius: 10px;
+    }
+
+    #actions {
+      margin-top: 10px;
+    }
+
+    img {
+      width: 400px;
+      border: solid black 10px;
+      border-radius: 25px;
+
+    }
+
+    .btn {
+      color: white;
+    }
+
+    #reset, .minus {
+      background-color: #FF360F;
+    }
+
+    .plus {
+      background-color: #70D1FF;
+    }
+
+    .plus:hover {
+      border: none;
+      background-color: #1791FF;
+    }
+
+    .minus:hover{
+      border:none;
+    }
+
+    #demo {
+      margin-top: 10px;
+    }
+
+  </style>
+
+
+</head>
+
+<body>
+  <div class="container">
+
+  <h1> Homerdoro timer </h1>
+
+  <img src="http://www.ubeadquitous.com/5/homer-simpson-doh-wallpaper-12.jpg" id='mainImg' alt='homer either working or sleeping'>
+
+  <div class='row' id='timers'>
+    <div id='work' class='col-xs-6'>
+      <h4> How long do I have to work?</h4>
+      <div id="timerValue" class="time btn bg-primary">25:00</div>
+      <br /><br />
+      <div id="addWork" class="adjust btn btn-success plus">+</div>
+      <div id="minusWork" class="adjust btn btn-danger minus">-</div>
+    </div>
+
+    <div id='break' class='col-xs-6'>
+      <h4>How long do I get to sleep?</h4>
+      <div id="breakValue" class="time btn">5:00</div>
+      <br /><br />
+      <div id="addBreak" class="adjust btn btn-success plus">+</div>
+      <div id="minusBreak" class="adjust btn btn-danger minus">-</div>
+    </div>
+  </div>
+
+  <div id='actions'>
+    <div id="startTimer" class="btn btn-primary action"> Start Timer </div>
+    <div id="stop" class="btn btn-info action"> Stop Timer </div>
+    <div id='reset' class='btn btn-danger action'> Reset  </div>
+  </div>
+  <div id="demo" class="btn btn-info action">5 second demo </div>
+
+  <footer class="well">
+    <small>
+      Made as a project for <a href="https://freecodecamp.com/mathewleland">Free Code Camp.</a>.
+    </small>
+    <small>
+      See a full list of projects by <a href="https://github.com/mathewleland">Mathew Leland</a>
+    </small>
+
+  </footer>
+
+</div>
+  <script src="js/homerdoro.js"></script>
+
+</body>
+</html>
