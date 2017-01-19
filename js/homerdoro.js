@@ -1,30 +1,30 @@
-var startTimerValue = (60 * 25),
+let startTimerValue = (60 * 25),
     breakTimerValue = (60 * 5),
     originalTime,
     timer,
     breakTimer,
-    paused = false,
-    woohoo = new Audio('http://www.richmolnar.com/Sounds/Homer%20-%20Woohoo!%20(1).wav'),
+    paused = false;
+const woohoo = new Audio('http://www.richmolnar.com/Sounds/Homer%20-%20Woohoo!%20(1).wav'),
     doh = new Audio("http://www.richmolnar.com/Sounds/Homer%20-%20D'oh!%20(1).wav");
 
-document.getElementById("addWork").addEventListener('click', function() {
+document.getElementById("addWork").addEventListener('click', () => {
   startTimerValue += 60;
   updateTimer(startTimerValue, 'timerValue');
 });
 
-document.getElementById("minusWork").addEventListener('click', function() {
+document.getElementById("minusWork").addEventListener('click', () => {
   if (startTimerValue > 61) {
     startTimerValue -= 60;
   }
   updateTimer(startTimerValue, 'timerValue');
 });
 
-document.getElementById("addBreak").addEventListener('click', function() {
+document.getElementById("addBreak").addEventListener('click', () => {
   breakTimerValue += 60;
   updateTimer(breakTimerValue, 'breakValue');
 });
 
-document.getElementById("minusBreak").addEventListener('click', function() {
+document.getElementById("minusBreak").addEventListener('click', () => {
   if (breakTimerValue > 61) {
     breakTimerValue -= 60;
     updateTimer(breakTimerValue, 'breakValue');
@@ -33,21 +33,21 @@ document.getElementById("minusBreak").addEventListener('click', function() {
 
 document.getElementById('startTimer').addEventListener('click', runWorkTimer);
 
-document.getElementById('reset').addEventListener('click', function() {
+document.getElementById('reset').addEventListener('click', () => {
   clearInterval(timer);
   clearInterval(breakTimer);
   startTimerValue = 60 * 25;
   breakTimerValue = 60 * 5;
   updateTimer(startTimerValue, 'timerValue');
   updateTimer(breakTimerValue, 'breakValue');
-  document.getElementById('mainImg').src = 'http://www.ubeadquitous.com/5/homer-simpson-doh-wallpaper-12.jpg';
+  document.getElementById('mainImg').src = 'http://www.star2.com/wp-content/uploads/2016/05/homer-770x470.jpg';
 });
 
 
 function updateTimer(newTime, timerID) {
   if (newTime >= 0) {
-    var minutes = Math.floor(newTime/60);
-    var seconds = newTime % 60;
+    let minutes = Math.floor(newTime/60);
+    let seconds = newTime % 60;
 
     seconds = (seconds > 9) ? (seconds.toString()) : ("0" + seconds.toString());
     document.getElementById(timerID).innerHTML = minutes.toString() + ":" + seconds;
@@ -62,7 +62,7 @@ function runWorkTimer() {
     paused = false;
     startTimerValue--;
     updateTimer(startTimerValue, 'timerValue');
-    document.getElementById('stop').addEventListener('click', function() {
+    document.getElementById('stop').addEventListener('click', () => {
       clearInterval(timer);
       paused = true;
     });
@@ -80,11 +80,11 @@ function runWorkTimer() {
 function runBreakTimer() {
   if (!paused) originalTime = breakTimerValue;
   document.getElementById('mainImg').src = 'https://tstotopix.files.wordpress.com/2014/01/homer-sleeping-1.png';
-  breakTimer = setInterval(function() {
+  breakTimer = setInterval(() => {
     paused = false;
     breakTimerValue--;
     updateTimer(breakTimerValue, 'breakValue');
-    document.getElementById('stop').addEventListener('click', function() {
+    document.getElementById('stop').addEventListener('click', () => {
       clearInterval(breakTimer);
     });
     if (breakTimerValue < 1) {
@@ -97,7 +97,7 @@ function runBreakTimer() {
   }, 1000);
 }
 
-document.getElementById('demo').addEventListener('click', function(){
+document.getElementById('demo').addEventListener('click', () => {
   startTimerValue = 5;
   breakTimerValue = 5;
   updateTimer(startTimerValue, 'timerValue');
